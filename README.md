@@ -9,3 +9,42 @@ docker build -t docker-vnc . && docker build --pull=false -t docker-firefox -f D
 then open your browser to http://localhost:6080 and use the password `asdasd` to connect. You can change the password by passing `--build-arg PASSWORD=mypassword` to `docker build`.
 
 `Dockerfile` contains everything you need as a base-image (vnc-server, window manager and webserver). `Dockerfile.firefox` shows how to add new software (including auto-starting it).
+
+## Run in kubernetes
+
+You can run this in kubernetes as a side-car:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-x
+  namespace: pr
+  labels:
+    app: text-x
+spec:
+  nodeSelector:
+    kubernetes.io/arch: amd64
+  volumes:
+    - name: xauth
+      emptyDir: {}
+  containers:
+    - name: x
+      image: toelke158/docker-vnc
+      ports:
+        - containerPort: 6080
+      volumeMounts:
+        - mountPath: /home/vncuser/.Xauthority
+          subPath: ".Xauthority"
+          name: xauth
+    - name: firefox
+      image: nixery.dev/shell/firefox/cacert
+      command:
+        - bash
+        - -c
+        - "DISPLAY=127.0.0.1:1 firefox"
+      volumeMounts:
+        - mountPath: /root/.Xauthority
+          subPath: ".Xauthority"
+          name: xauth
+```
