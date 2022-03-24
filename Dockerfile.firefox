@@ -1,6 +1,9 @@
 FROM toelke158/docker-vnc
 
+ARG PASSWORD=asdasd
+
 USER root
 RUN apt update && apt install -y firefox-esr
 USER vncuser
+RUN bash -c "echo '${PASSWORD}' | vncpasswd -f > /home/vncuser/.vnc/passwd && chmod 600 /home/vncuser/.vnc/passwd"
 RUN echo "firefox&" >> /home/vncuser/.xsession
