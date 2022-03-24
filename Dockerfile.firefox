@@ -1,0 +1,6 @@
+FROM docker-vnc
+
+USER root
+RUN apt update && apt install -y firefox-esr
+USER vncuser
+RUN echo "firefox&" >> /home/vncuser/.xsession
