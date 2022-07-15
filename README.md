@@ -1,3 +1,5 @@
+[![ci](https://github.com/toelke/docker-vnc/actions/workflows/build-docker.yaml/badge.svg?branch=main)](https://github.com/toelke/docker-vnc/actions/workflows/build-docker.yaml)
+
 # Run graphical applications in docker and access them via the webbrowser
 
 Quick demo:
