@@ -1,4 +1,4 @@
-FROM debian:11.4
+FROM debian:bullseye-20220622
 
 ARG PASSWORD=asdasd
 
