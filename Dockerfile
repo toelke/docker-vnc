@@ -1,4 +1,4 @@
-FROM debian:bullseye-20220801
+FROM debian:bullseye-20220822
 
 RUN apt update && apt install -y tightvncserver novnc python3-websockify dwm
 RUN ln -s vnc.html /usr/share/novnc/index.html
