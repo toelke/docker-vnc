@@ -13,5 +13,5 @@ ARG PASSWORD=asdasd
 RUN bash -c "echo '${PASSWORD}' | vncpasswd -f > /home/vncuser/.vnc/passwd && chmod 600 /home/vncuser/.vnc/passwd"
 
  # e.g. -geometry 1280x1024
-ENV VNCSERVER_ARGS
+ENV VNCSERVER_ARGS=""
 CMD ["/start.sh"]
