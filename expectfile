@@ -1,0 +1,7 @@
+#!/usr/bin/env expect
+spawn vncpasswd -u vncuser -w -r
+expect Password:
+send "$env(PASSWORD)\r"
+expect Verify:
+send "$env(PASSWORD)\r"
+expect eof

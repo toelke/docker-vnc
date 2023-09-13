@@ -8,7 +8,9 @@ Quick demo:
 docker build -t docker-firefox -f Dockerfile.firefox . && docker run --rm -p 6080:6080 docker-firefox
 ```
 
-then open your browser to http://localhost:6080 and use the password `asdasd` to connect. You can change the password by passing `--build-arg PASSWORD=mypassword` to `docker build`.
+then open your browser to http://localhost:6080 and use the username `vncuser` and password `asdasd` to connect. You can change the password by passing `-e PASSWORD=mypassword` to `docker run`.
+
+Note: Firefox might have opened on virtual screen 9...
 
 `Dockerfile` contains everything you need as a base-image (vnc-server, window manager and webserver). `Dockerfile.firefox` shows how to add new software (including auto-starting it).
 
