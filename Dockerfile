@@ -2,7 +2,7 @@ FROM debian:bookworm-20240423
 
 ARG TARGETARCH
 
-ADD https://github.com/kasmtech/KasmVNC/releases/download/v1.2.0/kasmvncserver_bookworm_1.2.0_$TARGETARCH.deb /tmp
+ADD https://github.com/kasmtech/KasmVNC/releases/download/v1.3.1/kasmvncserver_bookworm_1.3.1_$TARGETARCH.deb /tmp
 RUN apt update && apt install -y dwm /tmp/kasmvncserver_*.deb expect
 ADD kasmvnc.yaml /etc/kasmvnc
 RUN adduser vncuser
