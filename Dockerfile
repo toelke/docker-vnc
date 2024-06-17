@@ -1,4 +1,4 @@
-FROM debian:bookworm-20240513
+FROM debian:bookworm-20240612
 
 ARG TARGETARCH
 
