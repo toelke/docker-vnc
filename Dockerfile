@@ -1,4 +1,4 @@
-FROM debian:trixie-20260713
+FROM debian:13
 
 ARG TARGETARCH
 
